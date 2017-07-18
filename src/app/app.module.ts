@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { StoreModule } from "@ngrx/store";
-import { operationsReducer } from "./reducers/operations";
 import { NewOperationComponent } from './new-operation/new-operation.component';
 import { OperationListComponent } from './operation-list/operation-list.component';
+import { reducer } from "./reducers/index";
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { OperationListComponent } from './operation-list/operation-list.componen
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.provideStore({ operations: operationsReducer })
+    StoreModule.provideStore(reducer)
   ],
   providers: [],
   bootstrap: [AppComponent]
