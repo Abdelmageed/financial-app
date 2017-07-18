@@ -1,0 +1,8 @@
+<div [ngModel]="selectedCurrency"
+     (ngModelChange)="changeCurrency.emit($event)"
+     ngbRadioGroup
+     name="radioBasic" >
+  <label class="btn btn-primary" *ngFor="let currency of currencies">
+    <input type="radio" [value]="currency"> {{currency}}
+  </label>
+</div>

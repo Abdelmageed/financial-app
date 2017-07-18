@@ -6,6 +6,7 @@ import 'rxjs/add/operator/let';
 import { Operation } from "./models/operation";
 import * as fromRoot from './reducers/';
 import * as operations from './actions/operations';
+import * as currencies from './actions/currencies';
 import { Observable } from "rxjs/Observable";
 
 @Component({
@@ -15,9 +16,13 @@ import { Observable } from "rxjs/Observable";
 export class AppComponent {
   id: number = 0;
   operations: Observable<Operation[]>;
+  currencies: Observable<string[]>;
+  selectedCurrency: Observable<string>;
 
   constructor(private _store: Store<fromRoot.State>) {
     this.operations = _store.let(fromRoot.getEntities);
+    this.currencies = _store.let(fromRoot.getCurrenciesEntities);
+    this.selectedCurrency = _store.let(fromRoot.getSelectedCurrency);
   }
 
   addOperation(operation) {
@@ -38,5 +43,9 @@ export class AppComponent {
 
   deleteOperation(operation) {
     this._store.dispatch(new operations.DeleteOperation(operation));
+  }
+
+  onCurrencySelected(currency) {
+    this._store.dispatch(new currencies.changeCurrency(currency));
   }
 }

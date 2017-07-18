@@ -1,6 +1,9 @@
 <div class="container">
 <app-new-operation (addOperation)="addOperation($event)"></app-new-operation>
- <app-operation-list [operations]="operations | async"
+<app-currencies [currencies]="currencies | async"
+                [selectedCurrency]="selectedCurrency | async"
+                (changeCurrency)="onCurrencySelected($event)"></app-currencies>
+<app-operation-list [operations]="operations | async"
                 (decrementOperation)="decrementOperation($event)"
                 (incrementOperation)="incrementOperation($event)"
                 (deleteOperation)="deleteOperation($event)"                
