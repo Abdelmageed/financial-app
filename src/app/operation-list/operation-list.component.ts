@@ -10,6 +10,7 @@ import { Operation } from "../models/operation";
 export class OperationListComponent implements OnInit {
 
   @Input() operations;
+  @Input() selectedCurrency: string;
 
   constructor() { }
 

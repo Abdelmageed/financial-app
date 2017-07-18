@@ -4,6 +4,7 @@
                 [selectedCurrency]="selectedCurrency | async"
                 (changeCurrency)="onCurrencySelected($event)"></app-currencies>
 <app-operation-list [operations]="operations | async"
+                [selectedCurrency]="selectedCurrency | async"                
                 (decrementOperation)="decrementOperation($event)"
                 (incrementOperation)="incrementOperation($event)"
                 (deleteOperation)="deleteOperation($event)"                

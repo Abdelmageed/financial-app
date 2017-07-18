@@ -15,13 +15,15 @@ export class changeCurrency implements Action {
 export class loadCurrencyRates implements Action {
     type = actionTypes.LOAD_CURRENCY_RATES;
 
-    constructor(public payload: string){}
+    constructor(public payload: any){}
 }
 
 export class loadRatesComplete implements Action {
     type = actionTypes.LOAD_RATES_COMPLETE;
 
-    constructor(public payload: string){}
+    constructor(public payload: object[]){}
 }
 
-export type Actions = changeCurrency;
+export type Actions = changeCurrency
+                    | loadCurrencyRates
+                    | loadRatesComplete;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import 'rxjs/add/operator/let';
@@ -13,7 +13,7 @@ import { Observable } from "rxjs/Observable";
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   id: number = 0;
   operations: Observable<Operation[]>;
   currencies: Observable<string[]>;
@@ -47,5 +47,9 @@ export class AppComponent {
 
   onCurrencySelected(currency) {
     this._store.dispatch(new currencies.changeCurrency(currency));
+  }
+
+  ngOnInit() {
+    this._store.dispatch(new currencies.loadCurrencyRates({}));
   }
 }

@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { NewOperationComponent } from './new-operation/new-operation.component';
 import { OperationListComponent } from './operation-list/operation-list.component';
 import { CurrenciesComponent } from './currencies/currencies.component';
+import { CustomCurrencyPipe } from "./currency.pipe";
 
 import { reducer } from "./reducers/index";
 import { EffectsModule } from "@ngrx/effects";
@@ -21,7 +22,8 @@ import { CurrencyService } from "./services/currencies";
     AppComponent,
     NewOperationComponent,
     OperationListComponent,
-    CurrenciesComponent
+    CurrenciesComponent,
+    CustomCurrencyPipe
   ],
   imports: [
     BrowserModule,

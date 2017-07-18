@@ -20,6 +20,9 @@ export function reducer(state = initialState, action: currencies.Actions): State
         case currencies.actionTypes.CHANGE_CURRENCY:
             return {...state, selectedCurrency: action.payload}
 
+        case currencies.actionTypes.LOAD_RATES_COMPLETE:
+            return {...state, rates: action.payload}
+
         default:
             return state;
     }
